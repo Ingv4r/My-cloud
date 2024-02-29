@@ -1,6 +1,7 @@
 from django.urls import path
-from django.views.generic import TemplateView
+
+from .views import FolderView
 
 urlpatterns = [
-    path('folders', TemplateView.as_view(template_name="home.html")),
+    path('folders/<path:path>', FolderView.as_view(), name='folder'),
 ]
