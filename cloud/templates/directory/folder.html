@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+{% block content %}
+{% load mptt_tags %}
+<ul>
+    {% if folder.children %}
+        {% for child in children_folders %}
+            <li>child.name</li>
+        {% endfor %}
+    {% endif %}
 
-<div class="container text-center">
-
-  {% for item in folder %}
-    <div class="row">
-      {{ item.name }}
-    </div>
-  {% endfor %}
-
-</div>
+</ul>
+{% for file in files %}
+    <li>{{ file.name }}</li>
+{% endfor %}
+{% endblock %}
